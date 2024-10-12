@@ -1,0 +1,4 @@
+# PRODUCTION PHASE
+FROM tomcat:10.1.30-jre11-temurin-noble
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
