@@ -39,6 +39,8 @@ public class RegisterServlet extends HttpServlet {
 			UserDAO userDAO = new UserDAO();
 			userDAO.register(user);
 			
+			response.sendRedirect("index.jsp");
+			
 		} catch (Exception e) {
 			// Escreve as mensagens de Exception em uma página de resposta.
 			StringWriter sw = new StringWriter();

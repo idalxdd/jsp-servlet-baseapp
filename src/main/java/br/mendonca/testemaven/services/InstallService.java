@@ -10,13 +10,13 @@ public class InstallService {
 	
 	private void statement(String sql) throws ClassNotFoundException, SQLException {
 		Connection conn = ConnectionPostgres.getConexao();
-		conn.setAutoCommit(false);
+		conn.setAutoCommit(true);
 		
 		Statement st = conn.createStatement();
 		st.executeUpdate(sql);
 		st.close();
 		
-		conn.commit();
+		//conn.commit();
 	}
 	
 	public void testConnection() throws ClassNotFoundException, SQLException {
