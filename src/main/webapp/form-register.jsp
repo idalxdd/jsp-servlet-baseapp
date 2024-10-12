@@ -9,6 +9,7 @@
   	<link href="style.css" rel="stylesheet">
   </head>
   <body class="d-flex align-items-center py-4 bg-body-tertiary">
+  
     <main class="w-100 m-auto form-container">
     	<form action="register" method="post">
     		<h1 class="h3 mb-3 fw-normal">Cadastrar novo usuário:</h1>

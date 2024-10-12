@@ -1,7 +1,5 @@
 services:
   jsp-app:
     build: .
-    depends_on:
-      - postgres
     ports:
       - 8080:8080

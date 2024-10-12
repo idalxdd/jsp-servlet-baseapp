@@ -1,4 +1,12 @@
 # PRODUCTION PHASE
 FROM tomcat:10.1.30-jre11-temurin-noble
+
+ENV DB_HOST=postgres
+ENV DB_PORT=5432
+ENV DB_NAME=baseapp
+ENV DB_USER=postgres
+ENV DB_PASSWORD=postgres
+
 EXPOSE 8080
+
 CMD ["catalina.sh", "run"]
