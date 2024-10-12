@@ -71,7 +71,9 @@ public class ModeloServlet extends HttpServlet {
 			
 			page.println("<html lang='pt-br'><head><title>Error</title></head><body>");
 			page.println("<h1>Error</h1>");
-			page.println("<code>" + sw.toString() + "</code>");
+			page.println("<code>");
+			page.println(sw.toString());
+			page.println("</code>");
 			page.println("</body></html>");
 			page.close();
 		} finally {
