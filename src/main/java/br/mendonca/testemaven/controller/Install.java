@@ -23,10 +23,14 @@ public class Install extends HttpServlet {
 		try {
 			Map<String, String> env = System.getenv();
 			
-			String STRINGCONECTIONDB = env.get("STRING-CONECTION-DB");
+			String DB_HOST = env.get("DB_HOST");
+			String DB_PORT = env.get("DB_PORT");
+			String DB_NAME = env.get("DB_NAME");
+			String DB_USER = env.get("DB_USER");
+			String DB_PASS = env.get("DB_PASS");
 			
 			Class.forName("org.postgresql.Driver");
-			DriverManager.getConnection("jdbc:" + STRINGCONECTIONDB);
+			DriverManager.getConnection("jdbc:postgresql//" + DB_HOST+ ":" + DB_PORT + "/" + DB_NAME, DB_USER, DB_PASS);
 			
 			
 			page.println("<html lang='pt-br'><head><title>Exemplo</title></head><body>");
