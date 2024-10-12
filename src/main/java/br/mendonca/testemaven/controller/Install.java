@@ -30,8 +30,7 @@ public class Install extends HttpServlet {
 			String DB_PASS = env.get("DB_PASS");
 			
 			Class.forName("org.postgresql.Driver");
-			DriverManager.getConnection("jdbc:postgresql//" + DB_HOST+ ":" + DB_PORT + "/" + DB_NAME, DB_USER, DB_PASS);
-			
+			DriverManager.getConnection("jdbc:postgresql://" + DB_HOST+ ":" + DB_PORT + "/" + DB_NAME, DB_USER, DB_PASS);
 			
 			page.println("<html lang='pt-br'><head><title>Exemplo</title></head><body>");
 			page.println("<h1>OK!</h1>");
