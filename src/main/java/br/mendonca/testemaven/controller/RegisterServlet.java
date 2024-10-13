@@ -3,7 +3,6 @@ package br.mendonca.testemaven.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.sql.SQLException;
 
 import br.mendonca.testemaven.dao.UserDAO;
 import br.mendonca.testemaven.model.entities.User;

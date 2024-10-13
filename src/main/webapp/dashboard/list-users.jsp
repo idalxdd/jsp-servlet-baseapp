@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List"%>
+<%@ page import="br.mendonca.testemaven.services.dto.UserDTO"%>
 <!doctype html>
 <html lang="pt-br" data-bs-theme="dark">
   <head>
@@ -12,8 +14,30 @@
   
     <main class="w-100 m-auto form-container">
     	<h1 class="h3 mb-3 fw-normal">Usuários:</h1>
-    	
-    </main>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col"></th>
+					<th scope="col">Nome</th>
+					<th scope="col">E-mail</th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+			<%
+			List<UserDTO> lista = (List<UserDTO>) request.getAttribute("lista");
+			for (UserDTO user : lista) {
+			%>
+			<tr>
+				<td>Editar</td>
+				<td><%= user.getName() %></td>
+				<td><%= user.getEmail() %></td>
+				<td>Apagar</td>
+			</tr>
+			<% } %>
+			</tbody>
+		</table>
+	</main>
     
     
     

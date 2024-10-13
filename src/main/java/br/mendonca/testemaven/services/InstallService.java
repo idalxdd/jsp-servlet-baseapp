@@ -15,8 +15,6 @@ public class InstallService {
 		Statement st = conn.createStatement();
 		st.executeUpdate(sql);
 		st.close();
-		
-		//conn.commit();
 	}
 	
 	public void testConnection() throws ClassNotFoundException, SQLException {
