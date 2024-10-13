@@ -10,18 +10,19 @@
   </head>
   <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <main class="w-100 m-auto form-container">
-    	<form action="#" method="post">
+    	<form action="/auth/logon" method="post">
     		<h1 class="h3 mb-3 fw-normal">Autenticação</h1>
     		<div class="form-floating">
-    			<input type="email" class="form-control" id="floatingInput" placehholder="seu-email@email.com" />
+    			<input type="email" name="email" class="form-control" id="floatingInput" placehholder="seu-email@email.com" />
     			<label for="floatingInput">Endereço de e-mail</label>
     		</div>
     		<div class="form-floating">
-    			<input type="password" class="form-control" id="floatingInput" placehholder="seu-email@email.com" />
+    			<input type="password" name="password" class="form-control" id="floatingInput" placehholder="seu-email@email.com" />
     			<label for="floatingInput">Senha</label>
     		</div>
     		<button class="btn btn-primary w-100 py-2 mt-2">Entrar</button>
     		<a href="form-register.jsp" class="link mt-5 mb-3">Cadastrar-se</a>
+    		<p class="w-100 m-auto"><%= request.getAttribute("msg") != null ? request.getAttribute("msg") : "" %></p>
     	</form>
     </main>
     
