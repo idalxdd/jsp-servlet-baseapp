@@ -57,6 +57,11 @@ if (session.getAttribute("user") != null) {
 				</tr>
 			</thead>
 				<tr>
+					<td scope="col">Ewerton Mendonça</th>
+					<td scope="col">Users</th>
+					<td scope="col">Autenticação</th>
+				</tr>
+				<tr>
 					<td scope="col">Coloque aqui seu nome</th>
 					<td scope="col">Coloque aqui sua entidade de trabalho</th>
 					<td scope="col">Coloque aqui sua regra de negócio</th>
