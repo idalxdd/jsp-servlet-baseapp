@@ -52,12 +52,14 @@ if (session.getAttribute("user") != null) {
 			<thead>
 				<tr>
 					<th scope="col">Nome</th>
-					<th scope="col">Github</th>
+					<th scope="col">Entidade</th>
+					<th scope="col">Regra de negócio</th>
 				</tr>
 			</thead>
 				<tr>
 					<td scope="col">Coloque aqui seu nome</th>
-					<td scope="col">Coloque aqui seu endereço do Github</th>
+					<td scope="col">Coloque aqui sua entidade de trabalho</th>
+					<td scope="col">Coloque aqui sua regra de negócio</th>
 				</tr>
 			<tbody>
 			</tbody>
