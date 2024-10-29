@@ -1,6 +1,6 @@
 # App Life
 
-## Desenolvedores
+## Desenvolvedores
 
 - Paulo Henrique Alves dos Santos;
 - Adicionei meu nome no "about.jsp";
