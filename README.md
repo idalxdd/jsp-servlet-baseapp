@@ -4,3 +4,4 @@
 
 - Paulo Henrique Alves dos Santos;
 - Adicionei meu nome no "about.jsp";
+- Beatriz Guerra Farias Santos;
