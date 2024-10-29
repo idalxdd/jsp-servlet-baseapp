@@ -2,4 +2,5 @@
 
 ## Desenolvedores
 
-- Seu nome completo aqui;
+- Paulo Henrique Alves dos Santos;
+- Adicionei meu nome no "about.jsp";
