@@ -66,6 +66,13 @@ if (session.getAttribute("user") != null) {
 					<td scope="col">Coloque aqui sua entidade de trabalho</th>
 					<td scope="col">Coloque aqui sua regra de negócio</th>
 				</tr>
+				
+				<tr>
+					<td scope="col">Rian de Noronha Gomes da Silva</th>
+					<td scope="col">Coloque aqui sua entidade de trabalho</th>
+					<td scope="col">Coloque aqui sua regra de negócio</th>
+				</tr>
+				
 			<tbody>
 			</tbody>
 		</table>
