@@ -19,6 +19,8 @@ public class Adocao {
 		this.statusAdocao = statusAdocao;
 		this.lembreteAdocao = lembreteAdocao;
 	}
+	
+	public Adocao() {}
 
 	public String getUuid() {
 		return uuid;
