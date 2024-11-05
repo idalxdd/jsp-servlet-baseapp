@@ -10,7 +10,7 @@ public class Especie {
     private String caracteristicas;
     private String necessidadeCuidados;
     private String statusConservacao;
-    public String getUuid() {
+    public  String getUuid() {
         return uuid;
     }
 
