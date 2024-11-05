@@ -11,3 +11,4 @@
 -Atualizei o about.jsp
 -Atualizei o arquivo README.md
 -Criei minha branch de desenvolvimento
+-Criei a entidade Especie
