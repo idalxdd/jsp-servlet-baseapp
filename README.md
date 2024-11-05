@@ -4,4 +4,10 @@
 
 - Paulo Henrique Alves dos Santos;
 - Adicionei meu nome no "about.jsp";
-- Beatriz Guerra Farias Santos;
+
+
+
+-Beatriz Guerra Farias Santos
+-Atualizei o about.jsp
+-Atualizei o arquivo README.md
+-Criei minha branch de desenvolvimento
