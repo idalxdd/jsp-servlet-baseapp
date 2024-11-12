@@ -1,16 +1,14 @@
-package br.mendonca.testemaven.model.entities;
+package br.mendonca.testemaven.services.dto;
 
+import br.mendonca.testemaven.model.entities.RelatorioCrescimento;
 
-
-public class RelatorioCrescimento {
+public class RelatorioCrescimentoDTO {
     private int id;
-    private int dataRegistro;
+    private int dataRegistro;  // Alterado para int
     private double altura;
     private String saude;
     private String observacoes;
 
-
-   
     public int getId() {
         return id;
     }
@@ -49,5 +47,15 @@ public class RelatorioCrescimento {
 
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
+    }
+
+    public static RelatorioCrescimentoDTO mapper(RelatorioCrescimento relatorio) {
+        RelatorioCrescimentoDTO dto = new RelatorioCrescimentoDTO();
+        dto.setId(relatorio.getId());
+        dto.setDataRegistro(relatorio.getDataRegistro());  // Alterado para int
+        dto.setAltura(relatorio.getAltura());
+        dto.setSaude(relatorio.getSaude());
+        dto.setObservacoes(relatorio.getObservacoes());
+        return dto;
     }
 }

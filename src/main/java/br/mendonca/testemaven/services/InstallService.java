@@ -32,4 +32,12 @@ public class InstallService {
 					+ "    email VARCHAR(255) NOT NULL,"
 					+ "    password VARCHAR(255) NOT NULL)");
 	}
+	public void createRelatorioTable() throws ClassNotFoundException, SQLException {
+        statement("CREATE TABLE IF NOT EXISTS relatorio_crescimento ("
+                + "id SERIAL PRIMARY KEY,"
+                + "data_registro INT,"
+                + "altura FLOAT,"
+                + "saude VARCHAR(100),"
+                + "observacoes TEXT)");
+    }
 }
