@@ -9,3 +9,5 @@
 - Fork do projeto, configuração inicial de colaboradores e render https://jsp-servlet-baseapp-1.onrender.com/
 - 2
 - Paulo Henrique Alves dos Santos;
+- 3
+- Paulo Henrique Alves dos Santos;
