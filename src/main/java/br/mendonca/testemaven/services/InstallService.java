@@ -41,12 +41,12 @@ public class InstallService {
 	
 	public void createAdocaoTable() throws ClassNotFoundException, SQLException {
 		statement("CREATE TABLE adocao ("
-					+ "    uuid UUID DEFAULT gen_random_uuid() PRIMARY KEY,"
-					+ "    usuario_id VARCHAR(255) NOT NULL,"
-					+ "    planta_id VARCHAR(255) NOT NULL,"
-					+ "    status_adocao VARCHAR(255) NOT NULL)"
-					+ "    data_adocao VARCHAR(255) NOT NULL)"
-					+ "    lembrete_adocao VARCHAR(255) NOT NULL)");
+			     + "    uuid UUID DEFAULT gen_random_uuid() PRIMARY KEY,"
+			     + "    usuario_id VARCHAR(255) NOT NULL,"
+			     + "    planta_id VARCHAR(255) NOT NULL,"
+			     + "    status_adocao VARCHAR(255) NOT NULL,"
+			     + "    data_adocao VARCHAR(255) NOT NULL,"
+			     + "    lembrete_adocao VARCHAR(255) NOT NULL)");
 	}
 	
 	
