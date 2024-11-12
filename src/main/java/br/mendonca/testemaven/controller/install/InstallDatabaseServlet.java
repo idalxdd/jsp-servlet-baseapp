@@ -3,7 +3,6 @@ package br.mendonca.testemaven.controller.install;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-
 import br.mendonca.testemaven.services.InstallService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,7 +13,6 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/install")
 public class InstallDatabaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter page = response.getWriter();
@@ -31,7 +29,11 @@ public class InstallDatabaseServlet extends HttpServlet {
 			
 			service.createUserTable();
 			msg += "<h2>Create table user sucessful!</h2>\n";
+			service.deleteAdocaoTable();
+			msg += "<h2>Delete table adocao sucessful!</h2>\n";
 			
+			service.createAdocaoTable();
+			msg += "<h2>Create table adocao sucessful!</h2>\n";
 			page.println("<html lang='pt-br'><head><title>Teste</title></head><body>");
 			page.println(msg);
 			/*/
