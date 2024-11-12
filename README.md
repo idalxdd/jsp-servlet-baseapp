@@ -9,4 +9,3 @@
 - Fork do projeto, configuração inicial de colaboradores e render https://jsp-servlet-baseapp-1.onrender.com/
 - 2
 - Paulo Henrique Alves dos Santos;
-- O usuario consegue instalar tabelas no BD e a Criação da entidade Planta;
