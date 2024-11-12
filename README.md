@@ -19,3 +19,5 @@
 
 - 3
 - Paulo Henrique Alves dos Santos;
+- Rian de Noronha Gomes da Silva
+- O USUÁRIO CONSEGUE INSTALAR NOVAS TABELAS NO BD PELD ENDPOINT INSTALL; 
