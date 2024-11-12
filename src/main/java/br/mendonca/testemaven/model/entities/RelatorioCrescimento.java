@@ -1,8 +1,9 @@
 package br.mendonca.testemaven.model.entities;
 
+
+
 public class RelatorioCrescimento {
-    private String id;
-    private Planta planta; // Referência à entidade Planta id, planta, dataRegistro, altura, saude, observacoes
+    private int id;
     private int dataRegistro;
     private double altura;
     private String saude;
@@ -10,20 +11,12 @@ public class RelatorioCrescimento {
 
 
    
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
-    }
-
-    public Planta getPlanta() {
-        return planta;
-    }
-
-    public void setPlanta(Planta planta) {
-        this.planta = planta;
     }
 
     public int getDataRegistro() {
