@@ -32,7 +32,6 @@ public class InstallService {
 					+ "    email VARCHAR(255) NOT NULL,"
 					+ "    password VARCHAR(255) NOT NULL)");
 	}
-<<<<<<< HEAD
 	
 	
 	public void deleteAdocaoTable() throws ClassNotFoundException, SQLException {
@@ -51,7 +50,7 @@ public class InstallService {
 	}
 	
 	
-=======
+
 	public void createRelatorioTable() throws ClassNotFoundException, SQLException {
         statement("CREATE TABLE IF NOT EXISTS relatorio_crescimento ("
                 + "id SERIAL PRIMARY KEY,"
@@ -60,5 +59,5 @@ public class InstallService {
                 + "saude VARCHAR(100),"
                 + "observacoes TEXT)");
     }
->>>>>>> 1e61063575e986423cf0b799999c04240bcee87c
+
 }
