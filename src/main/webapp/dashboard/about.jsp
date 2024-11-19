@@ -71,7 +71,7 @@ if (session.getAttribute("user") != null) {
 			<tr>
 				<td scope="col">Paulo Henrique Alves dos Santos
 				</th>
-				<td scope="col">Coloque aqui sua entidade de trabalho
+				<td scope="col">Plantas
 				</th>
 				<td scope="col">Coloque aqui sua regra de negócio
 				</th>
