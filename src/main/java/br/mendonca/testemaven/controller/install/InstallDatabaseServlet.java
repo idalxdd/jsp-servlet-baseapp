@@ -30,7 +30,7 @@ public class InstallDatabaseServlet extends HttpServlet {
             String table = request.getParameter("table");
 
             if (table == null) {
-                msg += "<h3>Use '?table=users' ou '?table=relatorios' na URL.</h3>";
+                msg += "<h3>Use '?table=users', '?table=relatorios', '?table=plantas' na URL.</h3>";
             } else {
                 switch (table) {
                     case "users":
@@ -41,6 +41,13 @@ public class InstallDatabaseServlet extends HttpServlet {
                         service.createRelatorioTable();
                         msg += "<h2>Relatorio de Crescimento table created successfully!</h2>";
                         break;
+					case "plantas":
+						service.createPlantaTable();
+						msg += "<h2>Planta table created successfully!</h2>";
+						break;
+					case "adocao":
+						service.createAdocaoTable();
+						msg += "<h2>Adocao table created successfully!</h2>";
                     default:
                         msg += "<h3>Table '" + table + "' is not recognized. Available options: 'users', 'relatorios'.</h3>";
                 }

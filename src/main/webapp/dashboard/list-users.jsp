@@ -34,8 +34,14 @@ if (session.getAttribute("user") != null && request.getAttribute("lista") != nul
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/dashboard/dashboard.jsp">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/dashboard/users">Usuários</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/dashboard/about.jsp">Sobre</a></li>
+						<li class="nav-item"><a class="nav-link" href="/dashboard/users">Users</a></li>
+						<li class="nav-item"><a class="nav-link" href="/dashboard/add-adocao.jsp">Cadastrar Adoção</a></li>
+						<li class="nav-item"><a class="nav-link" href="/dashboard/users">Listar Adoções</a></li>
+						<li class="nav-item"><a class="nav-link" href="/dashboard/add-planta.jsp">Cadastrar Planta</a></li>
+						<li class="nav-item"><a class="nav-link" href="/dashboard/add-relatorio.jsp">Adicionar Relatório</a></li>
+						<li class="nav-item"><a class="nav-link" href="/dashboard/list-relatorios-ocultos.jsp">Ver Relatórios Ocultos</a></li>
+						<li class="nav-item"><a class="nav-link" href="/dashboard/plantas">Plantas</a></li>
+						<li class="nav-item"><a class="nav-link" href="/dashboard/about.jsp">About</a></li>
                     </ul>
                     <span class="navbar-text">
                         <a class="btn btn-success" href="/auth/logoff">Sair</a>
