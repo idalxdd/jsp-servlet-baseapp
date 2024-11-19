@@ -16,7 +16,7 @@ public class AdocaoDAO {
 		Connection conn = ConnectionPostgres.getConexao();
 		conn.setAutoCommit(true);
 		
-		PreparedStatement ps = conn.prepareStatement("INSERT INTO adocao(usuarioId, plantaId, dataAdocao,statusAdocao, lembreteAdocao) values (?,?,?, ?, ?)");
+		PreparedStatement ps = conn.prepareStatement("INSERT INTO adocao(usuario_id, planta_id, status_adocao,data_adocao, lembrete_adocao) values (?,?,?, ?, ?)");
 		ps.setString(1, adocao.getUsuarioId());
 		ps.setString(2, adocao.getPlantaId());
 		ps.setString(3, adocao.getDataAdocao());
