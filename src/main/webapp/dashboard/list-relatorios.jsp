@@ -26,6 +26,7 @@
                         <li class="nav-item"><a class="nav-link" href="/dashboard/users">Usuários</a></li>
                         <li class="nav-item"><a class="nav-link" href="/dashboard/about.jsp">Sobre</a></li>
                         <li class="nav-item"><a class="nav-link" href="/add-relatorio.jsp">Adicionar Relatório</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/relatorioCrescimento?action=ocultos">Relatórios Ocultos</a></li>
                     </ul>
                     <span class="navbar-text">
                         <a class="btn btn-success" href="/auth/logoff">Sair</a>
@@ -35,7 +36,7 @@
         </nav>
 
         <h1 class="h3 mb-3 fw-normal">Relatórios de Crescimento</h1>
-        <a href="dashboard/add-relatorio.jsp" class="btn btn-primary mb-3">Adicionar Novo Relatório</a>
+        <a href="add-relatorio.jsp" class="btn btn-primary mb-3">Adicionar Novo Relatório</a>
 
         <!-- Tabela de Listagem -->
         <table class="table table-bordered table-striped">
@@ -46,6 +47,7 @@
                     <th>Altura (cm)</th>
                     <th>Saúde</th>
                     <th>Observações</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -60,17 +62,47 @@
                         <td><%= relatorio.getAltura() %></td>
                         <td><%= relatorio.getSaude() %></td>
                         <td><%= relatorio.getObservacoes() %></td>
+                        <td>
+                            <form action="relatorioCrescimento" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="<%= relatorio.getId() %>">
+                                <input type="hidden" name="action" value="delete">
+                                <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                            </form>
+                        </td>
                     </tr>
-                <% 
+                <%
                         }
                     } else { 
                 %>
                     <tr>
-                        <td colspan="5" class="text-center">Nenhum relatório encontrado.</td>
+                        <td colspan="6" class="text-center">Nenhum relatório encontrado.</td>
                     </tr>
                 <% } %>
             </tbody>
         </table>
+        
+
+        <!-- Controles de Paginação -->
+        <div class="d-flex justify-content-between">
+            <%
+                int currentPage = (Integer) request.getAttribute("currentPage");
+                int totalPages = (Integer) request.getAttribute("totalPages");
+            %>
+
+            <% if (currentPage > 1) { %>
+                <a href="?page=<%= currentPage - 1 %>" class="btn btn-secondary">Anterior</a>
+            <% } else { %>
+                <button class="btn btn-secondary" disabled>Anterior</button>
+            <% } %>
+
+            <span>Página <%= currentPage %> de <%= totalPages %></span>
+
+            <% if (currentPage < totalPages) { %>
+                <a href="?page=<%= currentPage + 1 %>" class="btn btn-secondary">Próxima</a>
+            <% } else { %>
+                <button class="btn btn-secondary" disabled>Próxima</button>
+            <% } %>
+        </div>
 
     </main>
 
