@@ -37,7 +37,8 @@ if (session.getAttribute("user") != null) {
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link" href="/dashboard/dashboard.jsp">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="/dashboard/users">Users</a></li>
-						<li class="nav-item"><a class="nav-link" href="/dashboard/users">Adoções</a></li>
+						<li class="nav-item"><a class="nav-link" href="/dashboard/add-adocao.jsp">Cadastrar Adoção</a></li>
+						<li class="nav-item"><a class="nav-link" href="/dashboard/users">Listar Adoções</a></li>
 						<li class="nav-item"><a class="nav-link" href="/dashboard/about.jsp">About</a></li>
 						<li class="nav-item"><a class="nav-link" href="/dashboard/add-relatorio.jsp">Adicionar Relatório</a></li>
 					</ul>
