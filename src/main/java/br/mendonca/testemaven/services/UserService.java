@@ -33,4 +33,18 @@ public class UserService {
 		
 		return resp;
 	}
+	public void seguirUsuario(int userId, int seguindoId) throws SQLException, ClassNotFoundException {
+		UserDAO userDAO = new UserDAO();
+        userDAO.seguirUsuario(userId, seguindoId);
+    }
+
+    public void deixarDeSeguirUsuario(int userId, int seguindoId) throws SQLException, ClassNotFoundException {
+		UserDAO userDAO = new UserDAO();
+        userDAO.deixarDeSeguirUsuario(userId, seguindoId);
+    }
+
+    public List<User> listarUsuariosSeguidos(int userId) throws SQLException, ClassNotFoundException {
+		UserDAO userDAO = new UserDAO();
+        return userDAO.listarUsuariosSeguidos(userId);
+    }
 }
