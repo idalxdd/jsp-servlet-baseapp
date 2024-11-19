@@ -13,6 +13,10 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/install")
 public class InstallDatabaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+<<<<<<< HEAD
+=======
+
+>>>>>>> bec57924355ddd450973f75fbe9b78c4ea22e524
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter page = response.getWriter();
@@ -29,27 +33,25 @@ public class InstallDatabaseServlet extends HttpServlet {
 			
 			service.createUserTable();
 			msg += "<h2>Create table user sucessful!</h2>\n";
+
+			service.deletePlantaTable();
+			msg += "<h2>Delete table planta sucessful!</h2>\n";
+
+			service.createPlantaTable();
+			msg += "<h2>Create table planta sucessful!</h2>\n";
+			
 			service.deleteAdocaoTable();
 			msg += "<h2>Delete table adocao sucessful!</h2>\n";
-			
+
 			service.createAdocaoTable();
 			msg += "<h2>Create table adocao sucessful!</h2>\n";
 			page.println("<html lang='pt-br'><head><title>Teste</title></head><body>");
 			page.println(msg);
-			/*/
-			page.println("<code>");
-			for (Map.Entry<String,String> pair : env.entrySet()) {
-			    page.println(pair.getKey());
-			    page.println(pair.getValue());
-			}
-			//*/
 			page.println("</code>");
 			page.println("</body></html>");
 			page.close();
 			
 		} catch (Exception e) {
-			// Escreve as mensagens de Exception em uma p�gina de resposta.
-			// N�o apagar este bloco.
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
 			e.printStackTrace(pw);
@@ -61,9 +63,11 @@ public class InstallDatabaseServlet extends HttpServlet {
 			page.println("</code>");
 			page.println("</body></html>");
 			page.close();
-		} finally {
-			
 		}
 	}
+<<<<<<< HEAD
 	
 }
+=======
+}	
+>>>>>>> bec57924355ddd450973f75fbe9b78c4ea22e524
