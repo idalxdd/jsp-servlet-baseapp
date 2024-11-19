@@ -36,13 +36,12 @@ public class InstallDatabaseServlet extends HttpServlet {
 
 			service.createPlantaTable();
 			msg += "<h2>Create table planta sucessful!</h2>\n";
-
+			
 			service.deleteAdocaoTable();
 			msg += "<h2>Delete table adocao sucessful!</h2>\n";
 
 			service.createAdocaoTable();
 			msg += "<h2>Create table adocao sucessful!</h2>\n";
-			
 			page.println("<html lang='pt-br'><head><title>Teste</title></head><body>");
 			page.println(msg);
 			page.println("</code>");
@@ -62,5 +61,6 @@ public class InstallDatabaseServlet extends HttpServlet {
 			page.println("</body></html>");
 			page.close();
 		}
-	}
+	}	
 }
+
