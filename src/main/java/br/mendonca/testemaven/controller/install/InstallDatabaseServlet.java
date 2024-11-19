@@ -3,7 +3,6 @@ package br.mendonca.testemaven.controller.install;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-
 import br.mendonca.testemaven.services.InstallService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -31,29 +30,26 @@ public class InstallDatabaseServlet extends HttpServlet {
 			
 			service.createUserTable();
 			msg += "<h2>Create table user sucessful!</h2>\n";
-			
+
 			service.deletePlantaTable();
 			msg += "<h2>Delete table planta sucessful!</h2>\n";
-			
+
 			service.createPlantaTable();
 			msg += "<h2>Create table planta sucessful!</h2>\n";
+
+			service.deleteAdocaoTable();
+			msg += "<h2>Delete table adocao sucessful!</h2>\n";
+
+			service.createAdocaoTable();
+			msg += "<h2>Create table adocao sucessful!</h2>\n";
 			
 			page.println("<html lang='pt-br'><head><title>Teste</title></head><body>");
 			page.println(msg);
-			/*/
-			page.println("<code>");
-			for (Map.Entry<String,String> pair : env.entrySet()) {
-			    page.println(pair.getKey());
-			    page.println(pair.getValue());
-			}
-			//*/
 			page.println("</code>");
 			page.println("</body></html>");
 			page.close();
 			
 		} catch (Exception e) {
-			// Escreve as mensagens de Exception em uma p�gina de resposta.
-			// N�o apagar este bloco.
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
 			e.printStackTrace(pw);
@@ -65,8 +61,6 @@ public class InstallDatabaseServlet extends HttpServlet {
 			page.println("</code>");
 			page.println("</body></html>");
 			page.close();
-		} finally {
-			
 		}
 	}
 }
