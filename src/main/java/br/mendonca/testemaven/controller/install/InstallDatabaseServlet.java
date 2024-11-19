@@ -13,61 +13,6 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/install")
 public class InstallDatabaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-<<<<<<< HEAD
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		PrintWriter page = response.getWriter();
-		
-		try {
-			InstallService service = new InstallService();
-			String msg = "<h1>INSTALL DATABASE</h1>";
-			
-			service.testConnection();
-			msg += "<h2>Connection DB sucessful!</h2>\n";
-			
-			service.deleteUserTable();
-			msg += "<h2>Delete table user sucessful!</h2>\n";
-			
-			service.createUserTable();
-			msg += "<h2>Create table user sucessful!</h2>\n";
-			service.deleteAdocaoTable();
-			msg += "<h2>Delete table adocao sucessful!</h2>\n";
-			
-			service.createAdocaoTable();
-			msg += "<h2>Create table adocao sucessful!</h2>\n";
-			page.println("<html lang='pt-br'><head><title>Teste</title></head><body>");
-			page.println(msg);
-			/*/
-			page.println("<code>");
-			for (Map.Entry<String,String> pair : env.entrySet()) {
-			    page.println(pair.getKey());
-			    page.println(pair.getValue());
-			}
-			//*/
-			page.println("</code>");
-			page.println("</body></html>");
-			page.close();
-			
-		} catch (Exception e) {
-			// Escreve as mensagens de Exception em uma p�gina de resposta.
-			// N�o apagar este bloco.
-			StringWriter sw = new StringWriter();
-			PrintWriter pw = new PrintWriter(sw);
-			e.printStackTrace(pw);
-			
-			page.println("<html lang='pt-br'><head><title>Error</title></head><body>");
-			page.println("<h1>Error</h1>");
-			page.println("<code>");
-			page.println(sw.toString());
-			page.println("</code>");
-			page.println("</body></html>");
-			page.close();
-		} finally {
-			
-		}
-	}
-=======
-	private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
@@ -120,5 +65,4 @@ public class InstallDatabaseServlet extends HttpServlet {
             page.close();
         }
     }
->>>>>>> eaafe176cb43c54795bb038c28f4d8e56124bd6b
 }
