@@ -1,5 +1,7 @@
 package br.mendonca.testemaven.model.entities;
 
+import java.util.List;
+
 public class User {
 	
 	private String uuid;
@@ -31,4 +33,14 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	private List<String> following; // UUID dos usuários seguidos
+
+	public List<String> getFollowing() {
+		return following;
+	}
+
+	public void setFollowing(List<String> following) {
+		this.following = following;
+	}
+
 }

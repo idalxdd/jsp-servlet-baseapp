@@ -24,24 +24,36 @@ public class InstallDatabaseServlet extends HttpServlet {
             String msg = "<h1>INSTALL DATABASE</h1>";
             
             service.testConnection();
-            msg += "<h2>Connection DB successful!</h2>\n";
-            
-            service.deleteUserTable();
-            msg += "<h2>Delete table user successful!</h2>\n";
-            
-            service.createUserTable();
-            msg += "<h2>Create table user successful!</h2>\n";
+            msg += "<h2>Connection to DB successful!</h2>";
 
-            service.deletePlantaTable();
-            msg += "<h2>Delete table planta successful!</h2>\n";
+            // Obtém o parâmetro "table" para saber qual tabela criar
+            String table = request.getParameter("table");
 
-            service.createPlantaTable();
-            msg += "<h2>Create table planta successful!</h2>\n";
+            if (table == null) {
+                msg += "<h3>Use '?table=users', '?table=relatorios', '?table=plantas' na URL.</h3>";
+            } else {
+                switch (table) {
+                    case "users":
+                        service.createUserTable();
+                        msg += "<h2>User table created successfully!</h2>";
+                        break;
+                    case "relatorios":
+                        service.createRelatorioTable();
+                        msg += "<h2>Relatorio de Crescimento table created successfully!</h2>";
+                        break;
+					case "plantas":
+						service.createPlantaTable();
+						msg += "<h2>Planta table created successfully!</h2>";
+						break;
+					case "adocao":
+						service.createAdocaoTable();
+						msg += "<h2>Adocao table created successfully!</h2>";
+                    default:
+                        msg += "<h3>Table '" + table + "' is not recognized. Available options: 'users', 'relatorios'.</h3>";
+                }
+            }
 
-            service.insertPlantas();
-            msg += "<h2>Insert plantas successful!</h2>\n";
-            
-            page.println("<html lang='pt-br'><head><title>Teste</title></head><body>");
+            page.println("<html lang='pt-br'><head><title>Install Tables</title></head><body>");
             page.println(msg);
             page.println("</body></html>");
             page.close();

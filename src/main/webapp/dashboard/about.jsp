@@ -90,7 +90,7 @@ if (session.getAttribute("user") != null) {
 			<tr>
 				<td scope="col">Idalberto Pereira Acioly Junior
 				</th>
-				<td scope="col">Coloque aqui sua entidade de trabalho
+				<td scope="col">Relatório de Crescimento
 				</th>
 				<td scope="col">Coloque aqui sua regra de negócio
 				</th>
