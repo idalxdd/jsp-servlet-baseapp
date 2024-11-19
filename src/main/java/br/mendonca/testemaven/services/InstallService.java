@@ -96,20 +96,4 @@ public class InstallService {
                 + "(20230130, 28.8, 'Regular', 'Folhas secando nas pontas devido ao calor.')";
         statement(sqlInsertExamples);
     }
-
-    public void insertPlantas() throws ClassNotFoundException, SQLException {
-        String[] plantas = {
-            "INSERT INTO plantas (nome_cientifico, nome_popular, origem) VALUES ('Rosa rubiginosa', 'Rosa', 'Europa')",
-            "INSERT INTO plantas (nome_cientifico, nome_popular, origem) VALUES ('Ocimum basilicum', 'Manjericão', 'Índia')",
-            "INSERT INTO plantas (nome_cientifico, nome_popular, origem) VALUES ('Helianthus annuus', 'Girassol', 'América do Norte')",
-            "INSERT INTO plantas (nome_cientifico, nome_popular, origem) VALUES ('Zea mays', 'Milho', 'México')",
-            "INSERT INTO plantas (nome_cientifico, nome_popular, origem) VALUES ('Coffea arabica', 'Café', 'Etiópia')",
-            "INSERT INTO plantas (nome_cientifico, nome_popular, origem) VALUES ('Solanum tuberosum', 'Batata', 'América do Sul')",
-            "INSERT INTO plantas (nome_cientifico, nome_popular, origem) VALUES ('Oryza sativa', 'Arroz', 'Ásia')"
-        };
-
-        for (String planta : plantas) {
-            statement(planta);
-        }
-    }
 }
