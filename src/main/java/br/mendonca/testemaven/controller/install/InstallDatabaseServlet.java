@@ -13,10 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/install")
 public class InstallDatabaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-<<<<<<< HEAD
-=======
 
->>>>>>> bec57924355ddd450973f75fbe9b78c4ea22e524
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter page = response.getWriter();
@@ -64,10 +61,6 @@ public class InstallDatabaseServlet extends HttpServlet {
 			page.println("</body></html>");
 			page.close();
 		}
-	}
-<<<<<<< HEAD
-	
+	}	
 }
-=======
-}	
->>>>>>> bec57924355ddd450973f75fbe9b78c4ea22e524
+
