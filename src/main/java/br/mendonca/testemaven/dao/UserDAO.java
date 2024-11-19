@@ -48,6 +48,68 @@ public class UserDAO {
 		return lista;
 	}
 
+	public void followUser(String followerUuid, String followingUuid) throws SQLException, ClassNotFoundException {
+		Connection conn = ConnectionPostgres.getConexao();
+		String sql = "INSERT INTO user_following (follower_uuid, following_uuid) VALUES (?, ?)";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, followerUuid);
+		ps.setString(2, followingUuid);
+		ps.execute();
+		ps.close();
+	}
+
+	public User searchByUuid(String uuid) throws ClassNotFoundException, SQLException {
+    User user = null;
+
+    Connection conn = ConnectionPostgres.getConexao();
+    conn.setAutoCommit(true);
+
+    String sql = "SELECT * FROM users WHERE uuid = ?";
+    PreparedStatement ps = conn.prepareStatement(sql);
+    ps.setString(1, uuid);
+
+    ResultSet rs = ps.executeQuery();
+    if (rs.next()) {
+        user = new User();
+        user.setUuid(rs.getString("uuid"));
+        user.setName(rs.getString("name"));
+        user.setEmail(rs.getString("email"));
+        user.setPassword(rs.getString("password")); // IncluÃ­do caso seja necessÃ¡rio
+    }
+
+    rs.close();
+    ps.close();
+
+    return user;
+}
+	
+	
+	public void unfollowUser(String followerUuid, String followingUuid) throws SQLException, ClassNotFoundException {
+		Connection conn = ConnectionPostgres.getConexao();
+		String sql = "DELETE FROM user_following WHERE follower_uuid = ? AND following_uuid = ?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, followerUuid);
+		ps.setString(2, followingUuid);
+		ps.execute();
+		ps.close();
+	}
+	
+	public List<String> getFollowing(String followerUuid) throws SQLException, ClassNotFoundException {
+		List<String> following = new ArrayList<>();
+		Connection conn = ConnectionPostgres.getConexao();
+		String sql = "SELECT following_uuid FROM user_following WHERE follower_uuid = ?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, followerUuid);
+		ResultSet rs = ps.executeQuery();
+		while (rs.next()) {
+			following.add(rs.getString("following_uuid"));
+		}
+		rs.close();
+		ps.close();
+		return following;
+	}
+	
+	
 	public User search(String email, String password) throws ClassNotFoundException, SQLException {
 		User user = null;
 		
@@ -58,7 +120,7 @@ public class UserDAO {
 		PreparedStatement ps = conn.prepareStatement("SELECT * FROM users WHERE email = ? AND password = ?");
 		ps.setString(1, email);
 		ps.setString(2, password);
-		System.out.println(ps); // Exibe no console do Docker a query já montada.
+		System.out.println(ps); // Exibe no console do Docker a query jï¿½ montada.
 		
 		ResultSet rs = ps.executeQuery();
 		if (rs.next()) {
@@ -75,7 +137,7 @@ public class UserDAO {
 		return user;
 	}
 
-	// TODO: Não testado
+	// TODO: Nï¿½o testado
 	public List<User> search(String name) throws ClassNotFoundException, SQLException {
 		ArrayList<User> lista = new ArrayList<User>();
 		

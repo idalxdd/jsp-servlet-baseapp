@@ -33,4 +33,18 @@ public class UserService {
 		
 		return resp;
 	}
+	public List<UserDTO> getFollowing(String followerUuid) throws ClassNotFoundException, SQLException {
+		UserDAO dao = new UserDAO();
+		List<String> followingUuids = dao.getFollowing(followerUuid); // Obtem os UUIDs dos usuários seguidos
+		List<UserDTO> following = new ArrayList<>();
+	
+		for (String uuid : followingUuids) {
+			User user = dao.searchByUuid(uuid); // Busca os detalhes de cada usuário pelo UUID
+			if (user != null) {
+				following.add(UserDTO.userMapper(user)); // Converte para DTO
+			}
+		}
+		return following;
+	}
+	
 }

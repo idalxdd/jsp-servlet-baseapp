@@ -15,22 +15,24 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/dashboard/users")
 public class ListUsersServlet extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter page = response.getWriter();
+	
 		
 		try {
 			UserService service = new UserService();
 			List<UserDTO> lista = service.listAllUsers();
 			
-			// Anexa à requisição um objeto ArrayList e despacha a requisição para uma JSP.
+			// Anexa ï¿½ requisiï¿½ï¿½o um objeto ArrayList e despacha a requisiï¿½ï¿½o para uma JSP.
 			request.setAttribute("lista", lista);
 			request.getRequestDispatcher("list-users.jsp").forward(request, response);
 		} catch (Exception e) {
-			// Escreve as mensagens de Exception em uma página de resposta.
-			// Não apagar este bloco.
+			// Escreve as mensagens de Exception em uma pï¿½gina de resposta.
+			// Nï¿½o apagar este bloco.
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
 			e.printStackTrace(pw);
@@ -45,23 +47,34 @@ public class ListUsersServlet extends HttpServlet {
 		}
 	}
 	
+	private boolean isFollowing(String currentUserUuid, String targetUserUuid) {
+		try {
+			UserService service = new UserService();
+			List<UserDTO> following = service.getFollowing(currentUserUuid);
+			for (UserDTO user : following) {
+				if (user.getUuid().equals(targetUserUuid)) {
+					return true;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter page = response.getWriter();
 		
 		try {
-			// A programação do servlet deve ser colocada neste bloco try.
-			// Apague o conteúdo deste bloco try e escreva seu código.
+			// A programaï¿½ï¿½o do servlet deve ser colocada neste bloco try.
+			// Apague o conteï¿½do deste bloco try e escreva seu cï¿½digo.
 			String parametro = request.getParameter("nomeparametro");
 			
-			page.println("Parametro: " + parametro);
-			page.close();
-			
-			
 		} catch (Exception e) {
-			// Escreve as mensagens de Exception em uma página de resposta.
-			// Não apagar este bloco.
+			// Escreve as mensagens de Exception em uma pï¿½gina de resposta.
+			// Nï¿½o apagar este bloco.
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
 			e.printStackTrace(pw);
