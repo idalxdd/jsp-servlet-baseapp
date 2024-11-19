@@ -6,33 +6,39 @@ import java.util.List;
 
 import br.mendonca.testemaven.dao.PlantaDAO;
 import br.mendonca.testemaven.model.entities.Planta;
-import br.mendonca.testemaven.services.dto.PlantaDTO;
 
 public class PlantaService {
-
-    // Método para registrar uma nova planta
+    
+    // Instância do DAO para interação com o banco de dados
+    PlantaDAO dao = new PlantaDAO();
+    
+    // Método para registrar uma planta
     public void register(String nomeCientifico, String nomePopular, String origem) throws ClassNotFoundException, SQLException {
-        PlantaDAO dao = new PlantaDAO();
         
         Planta planta = new Planta();
         planta.setNomeCientifico(nomeCientifico);
         planta.setNomePopular(nomePopular);
         planta.setOrigem(origem);
         
-        dao.register(planta);
+        dao.register(planta); // Chama o DAO para registrar a planta no banco
     }
-
+    
+    public Planta search(String uuid) throws ClassNotFoundException, SQLException {
+        return dao.search(uuid); // Chama o DAO para buscar a planta pelo UUID
+    }
+    
     // Método para listar todas as plantas
-    public List<PlantaDTO> listAllPlantas() throws ClassNotFoundException, SQLException {
-        List<PlantaDTO> resp = new ArrayList<>();
+    public List<Planta> listAllPlantas() throws ClassNotFoundException, SQLException {
+        ArrayList<Planta> resp = new ArrayList<Planta>();
         
-        PlantaDAO dao = new PlantaDAO();
+        // Obtém a lista de plantas do DAO
         List<Planta> lista = dao.listAllPlantas();
         
+        // Adiciona as plantas à resposta
         for (Planta planta : lista) {
-            resp.add(PlantaDTO.plantaMapper(planta));
+            resp.add(planta);
         }
         
-        return resp;
+        return resp; // Retorna a lista de plantas
     }
 }
