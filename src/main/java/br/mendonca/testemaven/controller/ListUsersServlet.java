@@ -21,6 +21,7 @@ public class ListUsersServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter page = response.getWriter();
+	
 		
 		try {
 			UserService service = new UserService();
@@ -44,6 +45,21 @@ public class ListUsersServlet extends HttpServlet {
 		} finally {
 			
 		}
+	}
+	
+	private boolean isFollowing(String currentUserUuid, String targetUserUuid) {
+		try {
+			UserService service = new UserService();
+			List<UserDTO> following = service.getFollowing(currentUserUuid);
+			for (UserDTO user : following) {
+				if (user.getUuid().equals(targetUserUuid)) {
+					return true;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 

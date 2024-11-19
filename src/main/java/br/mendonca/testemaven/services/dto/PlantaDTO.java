@@ -44,7 +44,7 @@ public class PlantaDTO {
     // Método para mapear Planta para PlantaDTO
     public static PlantaDTO plantaMapper(Planta planta) {
         PlantaDTO dto = new PlantaDTO();
-        dto.setId(planta.getId());
+        dto.setId(planta.getUuid());
         dto.setNomeCientifico(planta.getNomeCientifico());
         dto.setNomePopular(planta.getNomePopular());
         dto.setOrigem(planta.getOrigem());

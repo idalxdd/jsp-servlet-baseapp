@@ -12,13 +12,13 @@ import br.mendonca.testemaven.model.entities.Planta;
 
 public class PlantaDAO {
 
-    // Método para registrar uma nova planta no banco de dados
+    // Método para registrar uma planta
     public void register(Planta planta) throws ClassNotFoundException, SQLException {
         Connection conn = ConnectionPostgres.getConexao();
         conn.setAutoCommit(true);
-        
-        String sql = "INSERT INTO plantas (nome_cientifico, nome_popular, origem) VALUES (?, ?, ?)";
-        PreparedStatement ps = conn.prepareStatement(sql);
+
+        // Inserção de dados na tabela plantas
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO plantas (nome_cientifico, nome_popular, origem) VALUES (?,?,?)");
         ps.setString(1, planta.getNomeCientifico());
         ps.setString(2, planta.getNomePopular());
         ps.setString(3, planta.getOrigem());
@@ -26,84 +26,55 @@ public class PlantaDAO {
         ps.close();
     }
 
-    // Método para listar todas as plantas do banco de dados
+    // Método para listar todas as plantas
     public List<Planta> listAllPlantas() throws ClassNotFoundException, SQLException {
-        List<Planta> lista = new ArrayList<>();
-        
+        ArrayList<Planta> lista = new ArrayList<Planta>();
+
         Connection conn = ConnectionPostgres.getConexao();
         conn.setAutoCommit(true);
-        
+
         Statement st = conn.createStatement();
         ResultSet rs = st.executeQuery("SELECT * FROM plantas");
-        
+
         while (rs.next()) {
             Planta planta = new Planta();
-            planta.setId(rs.getString("id"));
+            planta.setUuid(rs.getString("uuid"));
             planta.setNomeCientifico(rs.getString("nome_cientifico"));
             planta.setNomePopular(rs.getString("nome_popular"));
             planta.setOrigem(rs.getString("origem"));
-            
             lista.add(planta);
         }
-        
+
         rs.close();
-        st.close();
-        
+
         return lista;
     }
 
-    // Método para buscar uma planta pelo nome científico
-    public Planta searchByNomeCientifico(String nomeCientifico) throws ClassNotFoundException, SQLException {
+    public Planta search(String uuid) throws ClassNotFoundException, SQLException {
         Planta planta = null;
-        
+
         Connection conn = ConnectionPostgres.getConexao();
         conn.setAutoCommit(true);
-        
-        String sql = "SELECT * FROM plantas WHERE nome_cientifico = ?";
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, nomeCientifico);
-        
+
+        // Converte a string para UUID
+        java.util.UUID uuidParam = java.util.UUID.fromString(uuid);
+
+        // Usando PreparedStatement para evitar SQL Injection
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM plantas WHERE uuid = ?");
+        ps.setObject(1, uuidParam); // Passa o UUID como parâmetro
+
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
             planta = new Planta();
-            planta.setId(rs.getString("id"));
+            planta.setUuid(rs.getString("uuid"));
             planta.setNomeCientifico(rs.getString("nome_cientifico"));
             planta.setNomePopular(rs.getString("nome_popular"));
             planta.setOrigem(rs.getString("origem"));
         }
-        
+
         rs.close();
-        ps.close();
-        
+
         return planta;
     }
 
-    // Método para buscar plantas pelo nome popular
-    public List<Planta> searchByNomePopular(String nomePopular) throws ClassNotFoundException, SQLException {
-        List<Planta> lista = new ArrayList<>();
-        
-        Connection conn = ConnectionPostgres.getConexao();
-        conn.setAutoCommit(true);
-        
-        String sql = "SELECT * FROM plantas WHERE LOWER(nome_popular) LIKE LOWER(?)";
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, "%" + nomePopular + "%");
-        
-        ResultSet rs = ps.executeQuery();
-        
-        while (rs.next()) {
-            Planta planta = new Planta();
-            planta.setId(rs.getString("id"));
-            planta.setNomeCientifico(rs.getString("nome_cientifico"));
-            planta.setNomePopular(rs.getString("nome_popular"));
-            planta.setOrigem(rs.getString("origem"));
-            
-            lista.add(planta);
-        }
-        
-        rs.close();
-        ps.close();
-        
-        return lista;
-    }
 }
